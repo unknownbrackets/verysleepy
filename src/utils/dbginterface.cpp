@@ -54,6 +54,7 @@ bool dbgHelpInit()
 	IMPORT(SymGetOptions);
 	IMPORT(SymGetModuleInfoW64);
 	IMPORT(SymFromAddrW);
+	IMPORT(SymFromNameW);
 	IMPORT(SymGetLineFromAddrW64);
 	IMPORT(SymRegisterCallbackW64);
 	IMPORT(SymRefreshModuleList);
@@ -82,6 +83,7 @@ bool dbgHelpInit()
 	IMPORT(SymGetOptions);
 	IMPORT(SymGetModuleInfoW64);
 	IMPORT(SymFromAddrW);
+	dest->SymFromNameW = NULL;
 	IMPORT(SymGetLineFromAddrW64);
 	IMPORT(SymRegisterCallbackW64);
 	IMPORT(SymRefreshModuleList);
@@ -111,6 +113,7 @@ bool dbgHelpInit()
 	IMPORT(SymGetOptions);
 	IMPORT(SymGetModuleInfoW64);
 	IMPORT(SymFromAddrW);
+	dest->SymFromNameW = NULL;
 	IMPORT(SymGetLineFromAddrW64);
 	IMPORT(SymRegisterCallbackW64);
 	IMPORT(SymRefreshModuleList);

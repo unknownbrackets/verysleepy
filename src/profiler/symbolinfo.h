@@ -29,6 +29,7 @@ http://www.gnu.org/copyleft/gpl.html..
 #include <windows.h>
 #include <vector>
 #include "profiler.h"
+#include "symbolapi.h"
 
 typedef void SymLogFn(const wchar_t *text);
 
@@ -72,12 +73,15 @@ public:
 
 private:
 	std::vector<Module> modules;
+	std::vector<HWND> process_hwnds;
+	void *process_message;
 	bool is64BitProcess;
 
 	void addModule(const Module& module);
 	void sortModules();
 
 	friend BOOL CALLBACK EnumModules(PCWSTR ModuleName, DWORD64 BaseOfDll, PVOID UserContext);
+	friend BOOL CALLBACK EnumWindowsProc(HWND hwnd, LPARAM lParam);
 };
 
 extern SymLogFn *g_symLog;
